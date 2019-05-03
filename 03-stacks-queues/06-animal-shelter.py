@@ -6,29 +6,26 @@ class Animal:
         self.next_node = next_node
 
 class Queue:
-    def __init__(self, head=None):
-        self.head = head
-        self.tail = head
-
-    def front(self):
-        return self.head
-
-    def pop_front(self):
-        node = self.head
-        if self.head is self.tail:
-            self.head = None
-            self.tail = None
-        else:
-            self.head = self.head.next_node
-        return node
+    def __init__(self, front=None):
+        self.front = front
+        self.back = front
 
     def push_back(self, node):
-        if self.tail is not None:
-            self.tail.next_node = node
-            self.tail = node
+        if self.back is not None:
+            self.front.next_node = node
+            self.back = node
         else:
-            self.head = node
-            self.tail = node
+            self.front = node
+            self.back = node
+
+    def pop_front(self):
+        node = self.front
+        if self.front is self.back:
+            self.front = None
+            self.back = None
+        else:
+            self.front = self.front.next_node
+        return node
 
 class AnimalShelter:
     def __init__(self):
@@ -51,14 +48,14 @@ class AnimalShelter:
         return self.dogs.pop_front()
 
     def dequeue_any(self):
-        if self.cats.front() is not None and self.dogs.front() is not None:
-            if self.cats.front().order < self.dogs.front().order:
+        if self.cats.front is not None and self.dogs.front is not None:
+            if self.cats.front.order < self.dogs.front.order:
                 return self.cats.pop_front()
             else:
                 return self.dogs.pop_front()
-        elif self.cats.front() is not None:
+        elif self.cats.front is not None:
             return self.cats.pop_front()
-        elif self.dogs.front() is not None:
+        elif self.dogs.front is not None:
             return self.dogs.pop_front()
         else:
             return None
