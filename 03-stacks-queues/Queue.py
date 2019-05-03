@@ -9,9 +9,6 @@ class Queue:
         self.front = front
         self.back = front
 
-    def peek_front(self):
-        return self.front
-
     def is_empty(self):
         return self.front is None
     
