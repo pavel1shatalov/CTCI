@@ -1,4 +1,10 @@
-def is_unique0(s):
+# Implement an algorithm to determine if a string has all unique characters.
+# What if you cannot use additional data structures?
+
+# Time: O(n)
+# Space: O(1)
+
+def is_unique_0(s):
     hash_table = [False]*128
     for l in s:
         ind = ord(l)
@@ -7,7 +13,10 @@ def is_unique0(s):
         hash_table[ind] = True
     return True
 
-def is_unique1(s):
+# Time: O(n^2)
+# Space: O(1)
+
+def is_unique_1(s):
     l = len(s)
     for base in range(l-1):
         for ind in range(base, l):
@@ -15,7 +24,10 @@ def is_unique1(s):
                 return False
     return True
 
-def is_unique2(s):
+# Time: O(nlog(n))
+# Space: O(n) [strings in Python are immutable]
+
+def is_unique_2(s):
     l = len(s)
     new = ''.join(sorted(s.split()))
     for ind in range(1, l):
@@ -23,7 +35,9 @@ def is_unique2(s):
             return False
     return True
 
+# Test
+
 if __name__ == "__main__":
-    print(is_unique0(input().rstrip()))
-    print(is_unique1(input().rstrip()))
-    print(is_unique2(input().rstrip()))
+    print(is_unique_0(input().rstrip()))
+    print(is_unique_1(input().rstrip()))
+    print(is_unique_2(input().rstrip()))
