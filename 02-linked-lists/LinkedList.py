@@ -37,6 +37,27 @@ class LinkedList:
         else:
             self.head = Node(data)
 
+    # O(1)
+    def pop_head(self):
+        head = self.head
+        if head:
+            self.head = self.head.next
+        return head
+
+    # O(n)
+    def pop_tail(self):
+        curr = self.head
+        if curr is None:
+            return None
+        if curr.next is None:
+            self.head = None
+            return curr
+        while curr.next.next:
+            curr = curr.next
+        tail = curr.next
+        curr.next = tail.next
+        return tail
+
     # O(n)
     def find(self, key):
         curr = self.head
@@ -45,8 +66,21 @@ class LinkedList:
         return curr
     
     # O(n)
+    def remove_first(self, key):
+        if self.head and self.head.data == key:
+            self.head = self.head.next
+            return
+        curr = self.head
+        while curr and curr.next:
+            if curr.next.data == key:
+                curr.next = curr.next.next
+                return
+            else:
+                curr = curr.next  
+
+    # O(n)
     def remove(self, key):
-        while self.head and self.head.next.data == key:
+        while self.head and self.head.data == key:
             self.head = self.head.next
         curr = self.head
         while curr and curr.next:
