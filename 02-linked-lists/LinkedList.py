@@ -38,6 +38,22 @@ class LinkedList:
             self.head = Node(data)
 
     # O(1)
+    def prepend_node(self, node):
+        node.next = self.head
+        self.head = node
+
+    # O(n)
+    def append_node(self, node):
+        if self.head:
+            curr = self.head
+            while curr.next:
+                curr = curr.next
+            if curr is not node: # to prevent node.next = node
+                curr.next = node
+        else:
+            self.head = node
+        
+    # O(1)
     def pop_head(self):
         head = self.head
         if head:
