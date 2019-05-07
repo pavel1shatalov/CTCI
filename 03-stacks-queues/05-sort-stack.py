@@ -3,7 +3,6 @@
 
 from Stack import Stack
 
-
 def sort_stack(s1):
     s2 = Stack()
     while not s1.is_empty():

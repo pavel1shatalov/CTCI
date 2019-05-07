@@ -12,8 +12,8 @@ class SetOfStacks:
             self.i += 1
         self.stacks[self.i].push(value)
 
-    def pop(self, value):
-        if self.stacks[index].is_empty():
+    def pop(self):
+        if self.stacks[self.i].is_empty():
             return None
         value = self.stacks[self.i].pop()
         if self.stacks[self.i].is_empty() and self.i != 0:

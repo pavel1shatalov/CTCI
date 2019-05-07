@@ -5,7 +5,6 @@
 
 from Stack import Stack
 
-
 class MyQueue:
     def __init__(self):
         self.size = 0
