@@ -3,11 +3,11 @@ from LinkedList import LinkedList
 # Time: O(n)
 # Space: O(1)
 
-def return_kth_to_last(head, k):
+def return_kth_to_last(lst, k):
     if k <= 0:
         return None
-    fast = head
-    slow = head
+    fast = lst.head
+    slow = lst.head
     for i in range(k):
         if fast.next is None and i < k - 1:
             return None
@@ -25,4 +25,4 @@ if __name__ == '__main__':
     for i in range(5):
         lst.append(i)
     print(lst)
-    print(return_kth_to_last(lst.head, 3))
+    print(return_kth_to_last(lst, 3))

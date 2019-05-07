@@ -66,7 +66,7 @@ if __name__ == '__main__':
     lst.append(2)
     lst.append(1)
     print(lst)
-    # It's important to check k < min(lst) and k > max(lst)
+    # It's important to check for k < min(lst) and for k > max(lst)
     lst.head = partition(lst.head, 5)
     print(lst)
     partition_modified(lst, 5)
