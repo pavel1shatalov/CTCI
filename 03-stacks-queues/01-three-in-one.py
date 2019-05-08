@@ -10,7 +10,7 @@ class TripleStack:
             return False
         if self.i[s] < self.max_i[s]:
             self.array[self.i[s]] = value
-            self.i[s]++
+            self.i[s] += 1
         else:
             self.array[self.i[s]] = value
             gap = self.max_i[s] - self.min_i[s]
